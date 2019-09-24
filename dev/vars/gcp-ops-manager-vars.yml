@@ -1,0 +1,36 @@
+---
+opsman_product_version: ^2\.6\..*$
+opsman_glob: "*GCP*.yml"
+
+ops_manager_settings: |
+  opsman-configuration:
+    gcp:
+      gcp_service_account: ((gcp_service_account))
+      project: fe-msegvich
+      region: us-central1
+      zone: us-central1-a
+      vm_name: pas-ops-manager               # default: OpsManager-vm
+      # For SharedVPC: projects/[HOST_PROJECT_ID]/regions/[REGION]/subnetworks/[SUBNET]
+      vpc_subnet: pas-demo-infrastructure-subnet
+      tags: ops-manager
+      # This CPU, Memory and disk size demonstrated here
+      # match the defaults, and needn't be included if these are the desired values
+      custom_cpu: 2
+      custom_memory: 8
+      boot_disk_size: 150
+      # At least one IP address (public or private) needs to be assigned to the VM.
+      # public_ip: 35.222.236.78
+      private_ip: 10.0.0.3
+
+ops_manager_auth: |
+  username: admin
+  password: PCF4tw
+  decryption-passphrase: PCF4tw
+
+opsman_env_filename: opsman-env.yml
+
+opsman_auth_filename: opsman-auth.yml
+
+state_file_name: state.yml
+
+state_file_destination: state-files
