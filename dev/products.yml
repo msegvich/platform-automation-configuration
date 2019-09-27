@@ -35,23 +35,6 @@ products:
   #  pivnet-api-token: ((pivnet_token))
   #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
 
-<<<<<<< HEAD
-  # # CSB
-  # csb:
-  #   product-version: "1.1.0"
-  #   pivnet-product-slug: credhub-service-broker
-  #   pivnet-api-token: ((pivnet_token))
-  #   pivnet-file-glob: "*.pivotal"
-  #   stemcell-iaas: google
-  #
-  # # Redis
-  # redis:
-  #   product-version: "2.0.1"
-  #   pivnet-product-slug: p-redis
-  #   pivnet-api-token: ((pivnet_token))
-  #   pivnet-file-glob: "*.pivotal"
-  #   stemcell-iaas: google
-=======
   # CSB
   csb:
     product-version: "1.4.1"
@@ -77,4 +60,3 @@ products:
   #  pivnet-product-slug: stemcells-ubuntu-xenial
   #  pivnet-api-token: ((pivnet_token))
   #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
->>>>>>> upstream/master
