@@ -7,7 +7,7 @@
 
 opsman-configuration:
   gcp:
-    gcp_service_account: ((gcp_service_account))
+    gcp_service_account: ((gcp.gcp_service_account))
     project: fe-msegvich
     region: us-central1
     zone: us-central1-a
