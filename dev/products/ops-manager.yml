@@ -27,4 +27,4 @@ opsman-configuration:
     # key to ssh onto the Ops Manger VM.
     # used to manage non-tile BOSH add-ons
     #ssh_public_key: ssh-rsa some-public-key...
-    ssh_public_key: ((gcp.gcp_opsman_public_key))
+    ssh_public_key: ((gcp.ssh_public_key))
