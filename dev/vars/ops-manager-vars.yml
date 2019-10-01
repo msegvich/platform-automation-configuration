@@ -8,7 +8,7 @@
 # 3. The values of the YAML elements can be: a) simple static values, or 2) values stored in CredHub
 
 gcp:
-  gcp_service_account: ((gcp_service_account))
+  gcp_service_account: ((gcs_json_key))
   project: fe-xzheng
   region: us-central1
   zone: us-central1-a
