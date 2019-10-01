@@ -23,3 +23,8 @@ opsman-configuration:
     # At least one IP address (public or private) needs to be assigned to the VM.
     # public_ip: 35.222.236.78
     private_ip: 10.0.0.3
+    public_ip: 35.184.158.144
+    # key to ssh onto the Ops Manger VM.
+    # used to manage non-tile BOSH add-ons
+    #ssh_public_key: ssh-rsa some-public-key...
+    ssh_public_key: ((gcp.gcp_opsman_public_key))
