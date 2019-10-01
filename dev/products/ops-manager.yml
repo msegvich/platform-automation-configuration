@@ -14,7 +14,7 @@ opsman-configuration:
     vm_name: pas-ops-manager               # default: OpsManager-vm
     # For SharedVPC: projects/[HOST_PROJECT_ID]/regions/[REGION]/subnetworks/[SUBNET]
     vpc_subnet: pcf-infrastructure-subnet
-    tags: ops-manager
+    tags: ((gcp.tags))
     # This CPU, Memory and disk size demonstrated here
     # match the defaults, and needn't be included if these are the desired values
     custom_cpu: 2
