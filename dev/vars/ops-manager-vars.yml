@@ -14,7 +14,7 @@ gcp:
   zone: us-central1-a
   vm_name: ops-manager-vm               # default: OpsManager-vm
   # For SharedVPC: projects/[HOST_PROJECT_ID]/regions/[REGION]/subnetworks/[SUBNET]
-  vpc_subnet: pcf-gcp-management-subnet
+  vpc_subnet: pcf-infrastructure-subnet
   tags: ops-manager                     # make sure firewall allow 443/22 for network tag of "ops-manager"
   custom_cpu: 4                         # default:  8
   custom_memory: 16                     # default: 16
