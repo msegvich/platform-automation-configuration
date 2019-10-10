@@ -1,0 +1,79 @@
+---
+# az-configuration
+az_configuration: [{name: us-central1-a}]
+
+# network-assignment
+network-assignment:
+  network: {name: pcf-management-subnet}
+  singleton_availability_zone: {name: us-central1-a}
+
+# networks-configuration
+networks-configuration:
+  networks:
+  - name: pcf-management-subnet
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
+      cidr: 10.0.2.0/24
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.2.1
+      reserved_ip_ranges: 10.0.2.1-10.0.2.9
+      availability_zone_names:
+      - us-central1-a
+  - name: pcf-pas-subnet
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-pas-subnet/us-central1
+      cidr: 10.0.4.0/24
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.4.1
+      reserved_ip_ranges: 10.0.4.1-10.0.4.9
+      availability_zone_names:
+      - us-central1-a
+  - name: services
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-services-subnet/us-central1
+      cidr: 10.0.8.0/24
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.8.1
+      reserved_ip_ranges: 10.0.8.1-10.0.8.9
+      availability_zone_names:
+      - us-central1-a
+  # - name: pks-services
+  #   subnets:
+  #   - iaas_identifier: pcf-pcf-network/pcf-pks-services/us-central1
+  #     cidr: 10.0.12.0/24
+  #     dns: 10.0.12.1
+  #     gateway: 10.0.12.1
+  #     reserved_ip_ranges: 10.0.12.1-10.0.12.9
+  #     availability_zone_names:
+  #     - us-central1-a
+  # - name: extra
+  #   subnets:
+  #   - iaas_identifier: pcf-pcf-network/pcf-extra-subnet/us-central1
+  #     cidr: 10.0.15.0/24
+  #     dns: 169.254.169.254, 8.8.8.8
+  #     gateway: 10.0.15.1
+  #     reserved_ip_ranges: 10.0.15.1-10.0.15.9
+  #     availability_zone_names:
+  #     - us-central1-a
+  #     - us-central1-b
+  #     - us-central1-c
+
+properties-configuration:
+  # director-configuration
+  director-configuration:
+    blobstore_type: local
+    database_type: internal
+    ntp_servers_string: metadata.google.internal
+
+  # security-configuration:
+  security-configuration:
+    generate_vm_passwords: true
+
+  # iaas-configuration:
+  iaas-configuration:
+    associated_service_account: ""
+    auth_json: ((gcs_json_key))
+    project: fe-msegvich
+
+# resource-configuration:
+resource-configuration:

@@ -29,14 +29,15 @@ azure:
   client_id: "875bef7f-955d-4741-a49a-db0725986905"
   client_secret: ((az_client_secret))
   #Need to update/confirm those below
-  resource_group: res-group
+  resource_group: pas
   location: "Central US"
   container: opsmanagerimage                    # container for opsman image
-  network_security_group: mds-pas-ops-manager-security-group
-  vpc_subnet: /subscriptions/66bd359e-2d3d-4dc3-86c8-7a832d2b33cc/resourceGroups/<MY_RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<MY_VNET>/subnets/<MY_SUBNET>
-  storage_account: terraformcf                   # account name of container
-  storage_key: pEuXDaDK/WWo...                  # account key of container (optional)
-  ssh_public_key: ssh-rsa AAAAB3NzaC1yc2EAZ...  # ssh key to access VM
+  network_security_group: pas-ops-manager-security-group
+  # vpc_subnet: /subscriptions/66bd359e-2d3d-4dc3-86c8-7a832d2b33cc/resourceGroups/<MY_RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<MY_VNET>/subnets/<MY_SUBNET>
+  vpc_subnet: /subscriptions/66bd359e-2d3d-4dc3-86c8-7a832d2b33cc/resourceGroups/pas/providers/Microsoft.Network/virtualNetworks/pas-virtual-network/subnets/pas-infrastructure-subnet
+  storage_account: ru9yf3lcb4sp2kkwtunn                   # account name of container
+  storage_key: ((az_storage_key))                  # account key of container (optional)
+  ssh_public_key: ((az_opsman_public_key))  # ssh key to access VM
   vm_name: ops-manager-vm                       # default: OpsManager-vm
   boot_disk_size: 150                           # default: 200
   cloud_name: AzureCloud                        # default: AzureCloud
@@ -44,5 +45,5 @@ azure:
   # delete-vm: this flag is ignored. delete-vm infers disk type from vm info from azure cloud.
   use_unmanaged_disk: false
   # At least one IP address (public or private) needs to be assigned to the VM.
-  # public_ip: 1.2.3.4
+  public_ip: 104.43.251.159
   private_ip: 10.0.8.4
