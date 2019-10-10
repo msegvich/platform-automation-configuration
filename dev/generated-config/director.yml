@@ -71,7 +71,7 @@ properties-configuration:
     handlers: []
   security_configuration:
     generate_vm_passwords: ((properties-configuration_security_configuration_generate_vm_passwords))
-    opsmanager_root_ca_trusted_certs: false
+    opsmanager_root_ca_trusted_certs: true
   syslog_configuration:
     enabled: false
 resource-configuration:
