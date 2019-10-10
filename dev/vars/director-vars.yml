@@ -64,10 +64,15 @@ properties-configuration:
     blobstore_type: local
     database_type: internal
     ntp_servers_string: metadata.google.internal
+    post_deploy_enabled: true
+    resurrector_enabled: true
+    retry_bosh_deploys: false
+    skip_director_drain: false
 
   # security-configuration:
   security-configuration:
     generate_vm_passwords: true
+    opsmanager_root_ca_trusted_certs: true
 
   # iaas-configuration:
   iaas-configuration:
