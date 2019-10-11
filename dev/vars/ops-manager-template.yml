@@ -21,7 +21,7 @@ gcp:
   boot_disk_size: 150                   # default: 400
   # At least one IP address (public or private) needs to be assigned to the VM.
   # public_ip: ((opsman_public_ip))
-  private_ip: 10.0.2.3
+  private_ip: 10.0.0.3
 
 azure:
   subscription_id: "66bd359e-2d3d-4dc3-86c8-7a832d2b33cc"

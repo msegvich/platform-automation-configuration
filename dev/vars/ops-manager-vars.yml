@@ -21,7 +21,7 @@ gcp:
   boot_disk_size: 100                   # default: 400
   # At least one IP address (public or private) needs to be assigned to the VM.
   public_ip: 35.184.158.144
-  private_ip: 10.0.2.3
+  private_ip: 10.0.0.3
   # key to ssh onto the Ops Manger VM.
   # used to manage non-tile BOSH add-ons
   #ssh_public_key: ssh-rsa some-public-key...
