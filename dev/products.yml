@@ -35,6 +35,19 @@ products:
   #  pivnet-api-token: ((pivnet_token))
   #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
 
+  # PKS
+  pks:
+    product-version: "1.5.1"
+    pivnet-product-slug: pivotal-container-service
+    pivnet-api-token: ((pivnet_token))
+    pivnet-file-glob: "*.pivotal"            # For full fledged PAS, use "cf-*.pivotal"
+    stemcell-iaas: google                        # 1) uncomment it if one desires the latest applicable stemcell for the product, or
+  #pks-stemcell:                                 # 2) use this session to specify exact stemcell you want
+  #  product-version: "315.99"                   # applicable stemcell range: 315.93–315.99
+  #  pivnet-product-slug: stemcells-ubuntu-xenial
+  #  pivnet-api-token: ((pivnet_token))
+  #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
+
   # CSB
   csb:
     product-version: "1.4.1"
