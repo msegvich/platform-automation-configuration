@@ -9,7 +9,7 @@
 
 # product-properties
 product-properties:
-  pks_tls: ((pks/product-properties/pks_tls))
+  pks_tls: ((gcp_pks_rsa))
   properties:
     cloud_provider:
       type: GCP
