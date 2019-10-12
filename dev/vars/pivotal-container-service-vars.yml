@@ -22,10 +22,17 @@ product-properties:
     plan1_selector:
       status: "Plan Active"
       active:
+        name: "Xtra Small"
         master_az_placement: ["us-central1-a"]
         worker_az_placement: ["us-central1-a"]
+        worker_instances: 1
     plan2_selector:
-      status: "Plan Inactive"
+      status: "Plan Active"
+      active:
+        name: "Small"
+        master_az_placement: ["us-central1-a"]
+        worker_az_placement: ["us-central1-a"]
+        worker_instances: 3
     plan3_selector:
       status: "Plan Inactive"
     vm_extensions: ["public_ip"]
