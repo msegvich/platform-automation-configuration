@@ -15,7 +15,7 @@ product-properties:
       type: GCP
       gcp:
         project_id: "fe-msegvich"
-        network: pcf-infrastructure-subnet
+        network: pcf-management-subnet
         master_service_account: "pks-master@fe-msegvich.iam.gserviceaccount.com"
         worker_service_account: "pks-worker@fe-msegvich.iam.gserviceaccount.com"
     pks_api_hostname: "api.pks.pcf-labs.com"
@@ -33,7 +33,7 @@ product-properties:
 
 # network-properties
 network-properties:
-  network: pcf-infrastructure-subnet
+  network: pcf-management-subnet
   other_availability_zones:
   - name: us-central1-a
   service_network:
