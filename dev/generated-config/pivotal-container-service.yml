@@ -9,12 +9,17 @@ product-properties:
   .properties.bosh-metric-sink-outputs:
     value: |
       [[outputs.discard]]
-  .properties.cloud_provider.azure.azure_cloud_name:
-    value: AzurePublicCloud
-  .properties.cloud_provider.vsphere.vcenter_master_creds:
-    value:
-      identity: ((properties_cloud_provider_vsphere_vcenter_master_creds.identity))
-      password: ((properties_cloud_provider_vsphere_vcenter_master_creds.password))
+  .properties.cloud_provider:
+    selected_option: gcp
+    value: GCP
+  .properties.cloud_provider.gcp.master_service_account:
+    value: pks-master@fe-msegvich.iam.gserviceaccount.com
+  .properties.cloud_provider.gcp.network:
+    value: pcf-management-subnet
+  .properties.cloud_provider.gcp.project_id:
+    value: fe-msegvich
+  .properties.cloud_provider.gcp.worker_service_account:
+    value: pks-worker@fe-msegvich.iam.gserviceaccount.com
   .properties.log_sink_resources_deploy:
     value: true
   .properties.metric_sink_resources_deploy:
@@ -28,14 +33,9 @@ product-properties:
     value: 10.100.200.0/24
   .properties.node_exporter_deploy:
     value: false
-  .properties.oidc_selector.enabled.groups_claim:
-    value: roles
-  .properties.oidc_selector.enabled.groups_prefix:
-    value: 'oidc:'
-  .properties.oidc_selector.enabled.username_claim:
-    value: user_name
-  .properties.oidc_selector.enabled.username_prefix:
-    value: 'oidc:'
+  .properties.oidc_selector:
+    selected_option: disabled
+    value: disabled
   .properties.pks-vrli:
     selected_option: disabled
     value: disabled
@@ -64,12 +64,18 @@ product-properties:
     value: true
   .properties.plan1_selector.active.kubelet_drain_timeout:
     value: 0
+  .properties.plan1_selector.active.master_az_placement:
+    value:
+    - us-central1-a
   .properties.plan1_selector.active.master_instances:
     value: 1
   .properties.plan1_selector.active.max_worker_instances:
     value: 50
   .properties.plan1_selector.active.name:
     value: small
+  .properties.plan1_selector.active.worker_az_placement:
+    value:
+    - us-central1-a
   .properties.plan1_selector.active.worker_instances:
     value: 3
   .properties.plan2_selector:
@@ -114,38 +120,38 @@ product-properties:
   .properties.syslog_selector:
     selected_option: disabled
     value: disabled
+  .properties.telemetry_installation_purpose_selector:
+    selected_option: demo_or_poc
+    value: demo_or_poc
   .properties.telemetry_selector:
-    selected_option: enabled
-    value: enabled
-  .properties.telemetry_selector.enabled.billing_polling_interval:
-    value: 60
-  .properties.telemetry_selector.enabled.environment_provider:
-    value: none
-  .properties.telemetry_selector.enabled.telemetry_polling_interval:
-    value: 600
-  .properties.telemetry_selector.enabled.telemetry_url:
-    value: https://vcsa.vmware.com/ph
+    selected_option: disabled
+    value: disabled
   .properties.uaa:
     selected_option: internal
     value: internal
   .properties.uaa_pks_cli_access_token_lifetime:
-    value: 600
+    value: 86400
   .properties.uaa_pks_cli_refresh_token_lifetime:
-    value: 21600
+    value: 172800
   .properties.uaa_pks_cluster_client_access_token_lifetime:
     value: 600
   .properties.uaa_pks_cluster_client_refresh_token_lifetime:
     value: 21600
+  .properties.vm_extensions:
+    value:
+    - public_ip
   .properties.wavefront:
     selected_option: disabled
     value: disabled
   .properties.worker_max_in_flight:
     value: 1
 network-properties:
-  network: null
+  network:
+    name: pcf-management-subnet
   other_availability_zones:
   - name: us-central1-a
-  service_network: null
+  service_network:
+    name: services
   singleton_availability_zone:
     name: us-central1-a
 resource-config:
@@ -156,6 +162,8 @@ resource-config:
     instance_type:
       id: automatic
     internet_connected: true
+    elb_names:
+    - tcp:pks-api
     max_in_flight: 1
 errand-config:
   delete-all-clusters:
@@ -165,7 +173,7 @@ errand-config:
   smoke-tests:
     post-deploy-state: false
   upgrade-all-service-instances:
-    post-deploy-state: true
+    post-deploy-state: false
   wavefront-alert-creation:
     post-deploy-state: false
   wavefront-alert-deletion:
