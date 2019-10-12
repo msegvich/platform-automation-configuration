@@ -41,7 +41,9 @@ product-properties:
     value: "((product-properties.properties.plan3_selector.status))"
   .properties.proxy_selector:
     value: Disabled
-  .properties.sink_resources:
+  .properties.log_sink_resources_deploy:
+    value: true
+  .properties.metric_sink_resources_deploy:
     value: true
   .properties.syslog_selector:
     value: disabled
