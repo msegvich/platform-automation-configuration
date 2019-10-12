@@ -60,6 +60,7 @@ resource-config:
 errand-config:
   delete-all-clusters: true
   pks-nsx-t-precheck: false
+  smoke-tests: false
   upgrade-all-service-instances: false
   wavefront-alert-creation: false
   wavefront-alert-deletion: false
