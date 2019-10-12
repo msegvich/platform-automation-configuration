@@ -33,12 +33,24 @@ product-properties:
     value: "((product-properties.properties.pks_api_hostname))"
   .properties.plan1_selector:
     value: "((product-properties.properties.plan1_selector.status))"
+  .properties.plan1_selector.active.name:
+    value: "((product-properties.properties.plan1_selector.active.name))"
   .properties.plan1_selector.active.master_az_placement:
     value: "((product-properties.properties.plan1_selector.active.master_az_placement))"
   .properties.plan1_selector.active.worker_az_placement:
     value: "((product-properties.properties.plan1_selector.active.worker_az_placement))"
+  .properties.plan1_selector.active.worker_instances:
+    value: "((product-properties.properties.plan1_selector.active.worker_instances))"
   .properties.plan2_selector:
     value: "((product-properties.properties.plan2_selector.status))"
+  .properties.plan2_selector.active.name:
+    value: "((product-properties.properties.plan2_selector.active.name))"
+  .properties.plan2_selector.active.master_az_placement:
+    value: "((product-properties.properties.plan2_selector.active.master_az_placement))"
+  .properties.plan2_selector.active.worker_az_placement:
+    value: "((product-properties.properties.plan2_selector.active.worker_az_placement))"
+  .properties.plan2_selector.active.worker_instances:
+    value: "((product-properties.properties.plan2_selector.active.worker_instances))"
   .properties.plan3_selector:
     value: "((product-properties.properties.plan3_selector.status))"
   .properties.proxy_selector:
