@@ -42,6 +42,8 @@ product-properties:
   .properties.pks-vrops:
     selected_option: disabled
     value: disabled
+  .properties.pks_api_hostname:
+    value: api.pks.pcf-labs.com
   .properties.plan1_selector:
     selected_option: active
     value: Plan Active
