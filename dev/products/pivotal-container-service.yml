@@ -25,6 +25,8 @@ product-properties:
     value: "((product-properties.properties.cloud_provider.gcp.worker_service_account))"
   .properties.network_selector:
     value: flannel
+  .properties.oidc_selector:
+    value: disabled
   .properties.pks-vrli:
     value: disabled
   .properties.pks_api_hostname:
@@ -49,6 +51,8 @@ product-properties:
     value: disabled
   .properties.telemetry_selector:
     value: disabled
+  .properties.telemetry_installation_purpose_selector:
+    value: demo_or_poc
   .properties.uaa:
     value: internal
   .properties.uaa_pks_cli_access_token_lifetime:
