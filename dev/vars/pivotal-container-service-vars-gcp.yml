@@ -15,9 +15,10 @@ product-properties:
       type: GCP
       gcp:
         project_id: "fe-msegvich"
-        network: pcf-management-subnet
+        network: pcf-pcf-network
         master_service_account: "pks-master@fe-msegvich.iam.gserviceaccount.com"
         worker_service_account: "pks-worker@fe-msegvich.iam.gserviceaccount.com"
+        subnetwork: pcf-services-subnet
     pks_api_hostname: "api.pks.pcf-labs.com"
     plan1_selector:
       status: "Plan Active"
