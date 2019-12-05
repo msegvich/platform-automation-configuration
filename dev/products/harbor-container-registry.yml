@@ -39,8 +39,7 @@ product-properties:
     value: true
 network-properties:
   network:
-    selected_option: pcf-infrastructure-subnet
-    value: pcf-infrastructure-subnet
+    name: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   singleton_availability_zone:
