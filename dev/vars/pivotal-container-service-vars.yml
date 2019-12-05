@@ -75,3 +75,4 @@ errand-config:
   upgrade-all-service-instances: false
   wavefront-alert-creation: false
   wavefront-alert-deletion: false
+  smoke-tests: false
