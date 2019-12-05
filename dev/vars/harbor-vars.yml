@@ -1,0 +1,17 @@
+product-properties:
+  public-cert: ((harbor_rsa.certificate))
+  private-cert: ((harbor_rsa.private_key))
+  admin-secret: ((harbor_admin.password))
+  admin_password_for_smoketest: ((harbor_admin.password))
+network-properties:
+  network:
+    name: services
+  other_availability_zones:
+  - name: us-central1-a
+  singleton_availability_zone:
+    name: us-central1-a
+resource-config:
+  harbor-app:
+    elb_names:
+      - harbor-lb
+errand-config:
