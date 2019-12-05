@@ -70,9 +70,15 @@ resource-config:
 # Note: these become the "static" default settings so make it as less enabled as possible to avoid unnecessary execution
 #       we can control them better in "apply changes" by using /errands/<product_slug>.yml
 errand-config:
-  delete-all-clusters: true
-  pks-nsx-t-precheck: false
-  upgrade-all-service-instances: false
-  wavefront-alert-creation: false
-  wavefront-alert-deletion: false
-  smoke-tests: false
+  delete-all-clusters:
+    pre-delete-state: true
+  pks-nsx-t-precheck:
+    post-deploy-state: false
+  smoke-tests:
+    post-deploy-state: false
+  upgrade-all-service-instances:
+    post-deploy-state: false
+  wavefront-alert-creation:
+    post-deploy-state: false
+  wavefront-alert-deletion:
+    pre-delete-state: false
