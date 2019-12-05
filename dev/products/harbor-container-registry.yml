@@ -2,7 +2,7 @@ product-name: harbor-container-registry
 product-properties:
   .properties.admin_password:
     value:
-      secret: ((product-properties.admin_password))
+      secret: ((product-properties.admin-secret))
   .properties.admin_password_for_smoketest:
     value:
       secret: ((product-properties.admin_password_for_smoketest))
