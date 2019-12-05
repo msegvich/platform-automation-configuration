@@ -4,7 +4,19 @@ product-properties:
     value:
       cert_pem: ((pivotal-container-service_pks_tls.cert_pem))
       private_key_pem: ((pivotal-container-service_pks_tls.private_key_pem))
-  .properties.bosh-metric-sink-node-exporter:
+  .properties.bosh-metric-sink-etcd:
+    value: true
+  .properties.bosh-metric-sink-kube-apiserver:
+    value: false
+  .properties.bosh-metric-sink-kube-controller-manager:
+    value: false
+  .properties.bosh-metric-sink-kubelet:
+    value: false
+  .properties.bosh-metric-sink-node-exporter-master:
+    value: false
+  .properties.bosh-metric-sink-node-exporter-pks-api:
+    value: false
+  .properties.bosh-metric-sink-node-exporter-worker:
     value: false
   .properties.bosh-metric-sink-outputs:
     value: |
@@ -15,9 +27,11 @@ product-properties:
   .properties.cloud_provider.gcp.master_service_account:
     value: pks-master@fe-msegvich.iam.gserviceaccount.com
   .properties.cloud_provider.gcp.network:
-    value: pcf-management-subnet
+    value: pcf-pcf-network
   .properties.cloud_provider.gcp.project_id:
     value: fe-msegvich
+  .properties.cloud_provider.gcp.subnetwork:
+    value: pcf-services-subnet
   .properties.cloud_provider.gcp.worker_service_account:
     value: pks-worker@fe-msegvich.iam.gserviceaccount.com
   .properties.log_sink_resources_deploy:
@@ -69,18 +83,53 @@ product-properties:
     - us-central1-a
   .properties.plan1_selector.active.master_instances:
     value: 1
+  .properties.plan1_selector.active.master_vm_type:
+    value: large.disk
   .properties.plan1_selector.active.max_worker_instances:
     value: 50
   .properties.plan1_selector.active.name:
-    value: small
+    value: Xtra Small
   .properties.plan1_selector.active.worker_az_placement:
     value:
     - us-central1-a
   .properties.plan1_selector.active.worker_instances:
-    value: 3
+    value: 1
+  .properties.plan1_selector.active.worker_vm_type:
+    value: large.disk
   .properties.plan2_selector:
-    selected_option: inactive
-    value: Plan Inactive
+    selected_option: active
+    value: Plan Active
+  .properties.plan2_selector.active.allow_privileged_containers:
+    value: false
+  .properties.plan2_selector.active.description:
+    value: 'Example: This plan will configure a medium sized kubernetes cluster, suitable
+      for more pods.'
+  .properties.plan2_selector.active.kubelet_drain_delete_local_data:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_force:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_force_node:
+    value: false
+  .properties.plan2_selector.active.kubelet_drain_grace_period:
+    value: 10
+  .properties.plan2_selector.active.kubelet_drain_ignore_daemonsets:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_timeout:
+    value: 0
+  .properties.plan2_selector.active.master_az_placement:
+    value:
+    - us-central1-a
+  .properties.plan2_selector.active.master_instances:
+    value: 3
+  .properties.plan2_selector.active.max_worker_instances:
+    value: 50
+  .properties.plan2_selector.active.name:
+    value: Small
+  .properties.plan2_selector.active.worker_az_placement:
+    value:
+    - us-central1-a
+  .properties.plan2_selector.active.worker_instances:
+    value: 3
   .properties.plan3_selector:
     selected_option: inactive
     value: Plan Inactive
@@ -126,6 +175,9 @@ product-properties:
   .properties.telemetry_selector:
     selected_option: disabled
     value: disabled
+  .properties.tmc:
+    selected_option: disabled
+    value: disabled
   .properties.uaa:
     selected_option: internal
     value: internal
@@ -147,7 +199,7 @@ product-properties:
     value: 1
 network-properties:
   network:
-    name: pcf-management-subnet
+    name: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   service_network:
@@ -171,9 +223,9 @@ errand-config:
   pks-nsx-t-precheck:
     post-deploy-state: false
   smoke-tests:
-    post-deploy-state: false
+    post-deploy-state: true
   upgrade-all-service-instances:
-    post-deploy-state: false
+    post-deploy-state: true
   wavefront-alert-creation:
     post-deploy-state: false
   wavefront-alert-deletion:
