@@ -38,7 +38,9 @@ product-properties:
   .properties.with_notary:
     value: true
 network-properties:
-  network: pcf-infrastructure-subnet
+  network:
+    selected_option: pcf-infrastructure-subnet
+    value: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   singleton_availability_zone:
