@@ -2,7 +2,7 @@ errands:
   pivotal-container-service:
     run_post_deploy:
       pks-nsx-t-precheck: false
-      smoke-tests: true
+      smoke-tests: false
       upgrade-all-service-instances: true
       wavefront-alert-creation: false
     run_pre_delete:
