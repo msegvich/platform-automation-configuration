@@ -24,16 +24,27 @@ product-properties:
       status: "Plan Active"
       active:
         name: "Xtra Small"
+        description: "Example: This plan will configure a lightweight kubernetes cluster. Not
+          recommended for production workloads."
         master_az_placement: ["us-central1-a"]
         worker_az_placement: ["us-central1-a"]
+        master_vm_type: large.disk
+        worker_vm_type: large.disk
+        master_instances: 1
         worker_instances: 1
+        max_worker_instances: 10
     plan2_selector:
       status: "Plan Active"
       active:
         name: "Small"
+        description:
         master_az_placement: ["us-central1-a"]
         worker_az_placement: ["us-central1-a"]
+        master_vm_type: large.disk
+        worker_vm_type: large.disk
+        master_instances: 1
         worker_instances: 3
+        max_worker_instances: 10
     plan3_selector:
       status: "Plan Inactive"
     vm_extensions: ["public_ip"]
@@ -41,7 +52,7 @@ product-properties:
 
 # network-properties
 network-properties:
-  network: pcf-management-subnet
+  network: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   service_network:

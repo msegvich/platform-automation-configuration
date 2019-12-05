@@ -31,6 +31,20 @@ product-properties:
     value: disabled
   .properties.pks_api_hostname:
     value: "((product-properties.properties.pks_api_hostname))"
+  .properties.plan1_selector.active.allow_privileged_containers:
+    value: false
+  .properties.plan1_selector.active.kubelet_drain_delete_local_data:
+    value: true
+  .properties.plan1_selector.active.kubelet_drain_force:
+    value: true
+  .properties.plan1_selector.active.kubelet_drain_force_node:
+    value: true
+  .properties.plan1_selector.active.kubelet_drain_grace_period:
+    value: 10
+  .properties.plan1_selector.active.kubelet_drain_ignore_daemonsets:
+    value: true
+  .properties.plan1_selector.active.kubelet_drain_timeout:
+    value: 0
   .properties.plan1_selector:
     value: "((product-properties.properties.plan1_selector.status))"
   .properties.plan1_selector.active.name:
@@ -41,16 +55,50 @@ product-properties:
     value: "((product-properties.properties.plan1_selector.active.worker_az_placement))"
   .properties.plan1_selector.active.worker_instances:
     value: "((product-properties.properties.plan1_selector.active.worker_instances))"
+  .properties.plan1_selector.active.description:
+    value: "((product-properties.properties.plan1_selector.active.description))"
+  .properties.plan1_selector.active.master_instances:
+    value: "((product-properties.properties.plan1_selector.active.master_instances))"
+  .properties.plan1_selector.active.master_vm_type:
+    value: "((product-properties.properties.plan1_selector.active.master_vm_type))"
+  .properties.plan1_selector.active.max_worker_instances:
+    value: "((product-properties.properties.plan1_selector.active.max_worker_instances))"
+  .properties.plan1_selector.active.worker_vm_type:
+    value: "((product-properties.properties.plan1_selector.active.worker_vm_type))"
   .properties.plan2_selector:
     value: "((product-properties.properties.plan2_selector.status))"
   .properties.plan2_selector.active.name:
     value: "((product-properties.properties.plan2_selector.active.name))"
+  .properties.plan2_selector.active.description:
+    value: "((product-properties.properties.plan1_selector.active.description))"
+  .properties.plan2_selector.active.master_instances:
+    value: "((product-properties.properties.plan1_selector.active.master_instances))"
+  .properties.plan2_selector.active.master_vm_type:
+    value: "((product-properties.properties.plan1_selector.active.master_vm_type))"
+  .properties.plan2_selector.active.max_worker_instances:
+    value: "((product-properties.properties.plan1_selector.active.max_worker_instances))"
+  .properties.plan2_selector.active.worker_vm_type:
+    value: "((product-properties.properties.plan1_selector.active.worker_vm_type))"
   .properties.plan2_selector.active.master_az_placement:
     value: "((product-properties.properties.plan2_selector.active.master_az_placement))"
   .properties.plan2_selector.active.worker_az_placement:
     value: "((product-properties.properties.plan2_selector.active.worker_az_placement))"
   .properties.plan2_selector.active.worker_instances:
     value: "((product-properties.properties.plan2_selector.active.worker_instances))"
+  .properties.plan2_selector.active.allow_privileged_containers:
+    value: false
+  .properties.plan2_selector.active.kubelet_drain_delete_local_data:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_force:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_force_node:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_grace_period:
+    value: 10
+  .properties.plan2_selector.active.kubelet_drain_ignore_daemonsets:
+    value: true
+  .properties.plan2_selector.active.kubelet_drain_timeout:
+    value: 0
   .properties.plan3_selector:
     value: "((product-properties.properties.plan3_selector.status))"
   .properties.proxy_selector:
