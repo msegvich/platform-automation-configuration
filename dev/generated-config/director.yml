@@ -1,13 +1,47 @@
-az-configuration: []
+az-configuration:
+- name: us-central1-a
+  iaas_configuration_guid: c5206dd7aebcd37b4e89
 iaas-configurations:
 - additional_cloud_properties: {}
   default_deployment_tag: ((iaas-configurations_0_default_deployment_tag))
   name: ((iaas-configurations_0_name))
+  project: ((iaas-configurations_0_project))
 network-assignment:
+  network:
+    name: pcf-infrastructure-subnet
   other_availability_zones: []
+  singleton_availability_zone:
+    name: us-central1-a
 networks-configuration:
   icmp_checks_enabled: false
-  networks: []
+  networks:
+  - name: pcf-infrastructure-subnet
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
+      cidr: 10.0.0.0/26
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.0.1
+      reserved_ip_ranges: 10.0.0.1-10.0.0.9
+      availability_zone_names:
+      - us-central1-a
+  - name: pcf-pas-subnet
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-pas-subnet/us-central1
+      cidr: 10.0.4.0/24
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.4.1
+      reserved_ip_ranges: 10.0.4.1-10.0.4.9
+      availability_zone_names:
+      - us-central1-a
+  - name: services
+    subnets:
+    - iaas_identifier: pcf-pcf-network/pcf-services-subnet/us-central1
+      cidr: 10.0.8.0/24
+      dns: 169.254.169.254, 8.8.8.8
+      gateway: 10.0.8.1
+      reserved_ip_ranges: 10.0.8.1-10.0.8.9
+      availability_zone_names:
+      - us-central1-a
 properties-configuration:
   director_configuration:
     blobstore_type: local
@@ -27,9 +61,9 @@ properties-configuration:
     keep_unreachable_vms: false
     local_blobstore_options:
       tls_enabled: true
-    ntp_servers_string: ""
-    post_deploy_enabled: false
-    resurrector_enabled: false
+    ntp_servers_string: metadata.google.internal
+    post_deploy_enabled: true
+    resurrector_enabled: true
     retry_bosh_deploys: false
     skip_director_drain: false
   dns_configuration:
