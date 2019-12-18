@@ -1,6 +1,7 @@
 az-configuration:
 - name: us-central1-a
-  iaas_configuration_guid: c5206dd7aebcd37b4e89
+  iaas_configuration_name: default
+  guid: f1a2f3a477aa10d97cf4
 iaas-configurations:
 - additional_cloud_properties: {}
   default_deployment_tag: ((iaas-configurations_0_default_deployment_tag))
@@ -19,7 +20,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
       cidr: 10.0.0.0/26
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.0.1
       reserved_ip_ranges: 10.0.0.1-10.0.0.9
       availability_zone_names:
@@ -28,7 +29,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-pas-subnet/us-central1
       cidr: 10.0.4.0/24
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.4.1
       reserved_ip_ranges: 10.0.4.1-10.0.4.9
       availability_zone_names:
@@ -37,7 +38,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-services-subnet/us-central1
       cidr: 10.0.8.0/24
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.8.1
       reserved_ip_ranges: 10.0.8.1-10.0.8.9
       availability_zone_names:
@@ -71,22 +72,30 @@ properties-configuration:
     handlers: []
   security_configuration:
     generate_vm_passwords: ((properties-configuration_security_configuration_generate_vm_passwords))
-    opsmanager_root_ca_trusted_certs: false
+    opsmanager_root_ca_trusted_certs: true
   syslog_configuration:
     enabled: false
 resource-configuration:
   compilation:
-    instances: automatic
+    additional_networks: []
+    additional_vm_extensions: []
+    elb_names: []
     instance_type:
       id: automatic
-    internet_connected: true
-  director:
     instances: automatic
+    internet_connected: true
+    swap_as_percent_of_memory_size: automatic
+  director:
+    additional_networks: []
+    additional_vm_extensions: []
+    elb_names: []
+    instance_type:
+      id: automatic
+    instances: automatic
+    internet_connected: true
     persistent_disk:
       size_mb: automatic
-    instance_type:
-      id: automatic
-    internet_connected: true
+    swap_as_percent_of_memory_size: automatic
 vmextensions-configuration: []
 vmtypes-configuration: {}
 
