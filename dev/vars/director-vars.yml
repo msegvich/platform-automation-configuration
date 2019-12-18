@@ -69,6 +69,9 @@ properties-configuration:
     retry_bosh_deploys: false
     skip_director_drain: false
 
+  bosh_product:
+    network_reference: pcf-management-subnet
+
   # security-configuration:
   security-configuration:
     generate_vm_passwords: true
