@@ -8,15 +8,13 @@ iaas-configurations:
   name: ((iaas-configurations_0_name))
   project: ((iaas-configurations_0_project))
 network-assignment:
-  network:
-    name: pcf-infrastructure-subnet
   other_availability_zones: []
   singleton_availability_zone:
     name: us-central1-a
 networks-configuration:
   icmp_checks_enabled: false
   networks:
-  - name: pcf-infrastructure-subnet
+  - name: pcf-management-subnet
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
       cidr: 10.0.0.0/26
