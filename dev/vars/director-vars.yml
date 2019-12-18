@@ -14,7 +14,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
       cidr: 10.0.0.0/26
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.0.1
       reserved_ip_ranges: 10.0.0.1-10.0.0.9
       availability_zone_names:
@@ -23,7 +23,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-pas-subnet/us-central1
       cidr: 10.0.4.0/24
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.4.1
       reserved_ip_ranges: 10.0.4.1-10.0.4.9
       availability_zone_names:
@@ -32,7 +32,7 @@ networks-configuration:
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-services-subnet/us-central1
       cidr: 10.0.8.0/24
-      dns: 169.254.169.254, 8.8.8.8
+      dns: 169.254.169.254
       gateway: 10.0.8.1
       reserved_ip_ranges: 10.0.8.1-10.0.8.9
       availability_zone_names:
