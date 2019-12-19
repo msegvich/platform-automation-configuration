@@ -14,7 +14,7 @@ network-assignment:
 networks-configuration:
   icmp_checks_enabled: false
   networks:
-  - name: pcf-management-subnet
+  - name: pcf-infrastructure-subnet
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
       cidr: 10.0.0.0/26
@@ -96,4 +96,3 @@ resource-configuration:
     swap_as_percent_of_memory_size: automatic
 vmextensions-configuration: []
 vmtypes-configuration: {}
-

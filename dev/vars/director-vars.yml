@@ -10,7 +10,7 @@ network-assignment:
 # networks-configuration
 networks-configuration:
   networks:
-  - name: pcf-management-subnet
+  - name: pcf-infrastructure-subnet
     subnets:
     - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
       cidr: 10.0.0.0/26
@@ -70,7 +70,7 @@ properties-configuration:
     skip_director_drain: false
 
   bosh_product:
-    network_reference: pcf-management-subnet
+    network_reference: pcf-infrastructure-subnet
 
   # security-configuration:
   security-configuration:
