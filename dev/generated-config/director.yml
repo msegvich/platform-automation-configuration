@@ -8,6 +8,8 @@ iaas-configurations:
   name: ((iaas-configurations_0_name))
   project: ((iaas-configurations_0_project))
 network-assignment:
+  network:
+    name: pcf-infrastructure-subnet
   other_availability_zones: []
   singleton_availability_zone:
     name: us-central1-a
@@ -96,3 +98,4 @@ resource-configuration:
     swap_as_percent_of_memory_size: automatic
 vmextensions-configuration: []
 vmtypes-configuration: {}
+
