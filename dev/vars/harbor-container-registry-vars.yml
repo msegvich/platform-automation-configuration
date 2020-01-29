@@ -5,7 +5,7 @@ product-properties:
   admin_password_for_smoketest: ((harbor_admin.password))
 network-properties:
   network:
-    name: services
+    name: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   singleton_availability_zone:
