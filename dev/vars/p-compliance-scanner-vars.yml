@@ -34,7 +34,8 @@ product-properties:
   .properties.syslog_port:
     value: 514
 network-properties:
-  network: pcf-infrastructure-subnet
+  network:
+    name: pcf-infrastructure-subnet
   other_availability_zones:
   - name: us-central1-a
   singleton_availability_zone:
