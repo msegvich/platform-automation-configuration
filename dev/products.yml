@@ -102,3 +102,8 @@ products:
     pivnet-api-token: ((pivnet_token))
     pivnet-file-glob: "*.pivotal"
     stemcell-iaas: google
+  compliance-stemcell:                               # 2) use this session to specify exact stemcell you want
+    product-version: "621.*"                   # applicable stemcell range: 315.*
+    pivnet-product-slug: stemcells-ubuntu-xenial
+    pivnet-api-token: ((pivnet_token))
+    pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
