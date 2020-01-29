@@ -94,3 +94,11 @@ products:
   #  pivnet-product-slug: stemcells-ubuntu-xenial
   #  pivnet-api-token: ((pivnet_token))
   #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
+
+  # Harbor
+  compliance:
+    product-version: "1.2.23"
+    pivnet-product-slug: p-compliance-scanner
+    pivnet-api-token: ((pivnet_token))
+    pivnet-file-glob: "*.pivotal"
+    stemcell-iaas: google
