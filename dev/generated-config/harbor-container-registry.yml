@@ -10,10 +10,12 @@ product-properties:
     selected_option: db_auth
     value: db_auth
   .properties.clair_updater_interval:
-    value: 0
+    value: 24
   .properties.customize_container_network:
     selected_option: default
     value: default
+  .properties.hostname:
+    value: harbor.pks.pcf-labs.com
   .properties.initial_delay_minutes:
     value: 60
   .properties.log_insight:
@@ -44,22 +46,31 @@ network-properties:
     name: us-central1-a
 resource-config:
   harbor-app:
+    max_in_flight: 1
+    additional_networks: []
+    additional_vm_extensions: []
+    elb_names:
+    - tcp:harbor-lb
+    instance_type:
+      id: automatic
     instances: automatic
+    internet_connected: true
     persistent_disk:
       size_mb: automatic
-    instance_type:
-      id: automatic
-    internet_connected: true
-    max_in_flight: 1
+    swap_as_percent_of_memory_size: automatic
   smoke-testing:
-    instances: automatic
+    max_in_flight: 1
+    additional_networks: []
+    additional_vm_extensions: []
+    elb_names: []
     instance_type:
       id: automatic
+    instances: automatic
     internet_connected: true
-    max_in_flight: 1
+    swap_as_percent_of_memory_size: automatic
 errand-config:
   smoke-testing:
-    post-deploy-state: when-changed
+    post-deploy-state: false
   uaa-deregistration:
     pre-delete-state: false
 
