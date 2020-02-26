@@ -23,7 +23,7 @@ products:
 
   # ==== Ops Manager
   opsman:
-    product-version: "2.7.8"
+    product-version: "2.8.3"
     pivnet-product-slug: ops-manager
     pivnet-api-token: ((pivnet_token))
     pivnet-file-glob: "ops-manager-gcp-*.yml"
@@ -45,7 +45,7 @@ products:
 
   # PKS
   pks:
-    product-version: "1.6.0"
+    product-version: "1.6.1"
     pivnet-product-slug: pivotal-container-service
     pivnet-api-token: ((pivnet_token))
     pivnet-file-glob: "*.pivotal"            # For full fledged PAS, use "cf-*.pivotal"
@@ -84,7 +84,7 @@ products:
 
   # Harbor
   harbor:
-    product-version: "1.9.3"
+    product-version: "1.10.1"
     pivnet-product-slug: harbor-container-registry
     pivnet-api-token: ((pivnet_token))
     pivnet-file-glob: "*.pivotal"
@@ -95,7 +95,7 @@ products:
   #  pivnet-api-token: ((pivnet_token))
   #  pivnet-file-glob: "light-bosh-stemcell-*-google-kvm-ubuntu-xenial-go_agent.tgz"
 
-  # Harbor
+  # Scanner
   compliance:
     product-version: "1.2.23"
     pivnet-product-slug: p-compliance-scanner

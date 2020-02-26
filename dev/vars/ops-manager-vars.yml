@@ -9,7 +9,7 @@
 
 gcp:
   gcp_service_account: ((gcs_json_key))
-  project: fe-xzheng
+  project: fe-msegvich
   region: us-central1
   zone: us-central1-a
   vm_name: ops-manager-vm               # default: OpsManager-vm
