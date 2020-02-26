@@ -3,10 +3,10 @@ errands:
     run_post_deploy:
       pks-nsx-t-precheck: false
       smoke-tests: false
-      upgrade-all-service-instances: false
+      upgrade-all-service-instances: true
       wavefront-alert-creation: false
     run_pre_delete:
-      delete-all-clusters: false
+      delete-all-clusters: true
       wavefront-alert-deletion: false
   harbor-container-registry:
     run_post_deploy:
