@@ -1,48 +1,13 @@
-az-configuration:
-- name: us-central1-a
-  iaas_configuration_name: default
-  guid: f1a2f3a477aa10d97cf4
+az-configuration: []
 iaas-configurations:
 - additional_cloud_properties: {}
   default_deployment_tag: ((iaas-configurations_0_default_deployment_tag))
   name: ((iaas-configurations_0_name))
-  project: ((iaas-configurations_0_project))
 network-assignment:
-  network:
-    name: pcf-infrastructure-subnet
   other_availability_zones: []
-  singleton_availability_zone:
-    name: us-central1-a
 networks-configuration:
   icmp_checks_enabled: false
-  networks:
-  - name: pcf-infrastructure-subnet
-    subnets:
-    - iaas_identifier: pcf-pcf-network/pcf-infrastructure-subnet/us-central1
-      cidr: 10.0.0.0/26
-      dns: 169.254.169.254
-      gateway: 10.0.0.1
-      reserved_ip_ranges: 10.0.0.1-10.0.0.9
-      availability_zone_names:
-      - us-central1-a
-  - name: pcf-pas-subnet
-    subnets:
-    - iaas_identifier: pcf-pcf-network/pcf-pas-subnet/us-central1
-      cidr: 10.0.4.0/24
-      dns: 169.254.169.254
-      gateway: 10.0.4.1
-      reserved_ip_ranges: 10.0.4.1-10.0.4.9
-      availability_zone_names:
-      - us-central1-a
-  - name: services
-    subnets:
-    - iaas_identifier: pcf-pcf-network/pcf-services-subnet/us-central1
-      cidr: 10.0.8.0/24
-      dns: 169.254.169.254
-      gateway: 10.0.8.1
-      reserved_ip_ranges: 10.0.8.1-10.0.8.9
-      availability_zone_names:
-      - us-central1-a
+  networks: []
 properties-configuration:
   director_configuration:
     blobstore_type: local
@@ -62,9 +27,9 @@ properties-configuration:
     keep_unreachable_vms: false
     local_blobstore_options:
       enable_signed_urls: false
-    ntp_servers_string: metadata.google.internal
-    post_deploy_enabled: true
-    resurrector_enabled: true
+    ntp_servers_string: ""
+    post_deploy_enabled: false
+    resurrector_enabled: false
     retry_bosh_deploys: false
     skip_director_drain: false
   dns_configuration:
@@ -72,7 +37,7 @@ properties-configuration:
     handlers: []
   security_configuration:
     generate_vm_passwords: ((properties-configuration_security_configuration_generate_vm_passwords))
-    opsmanager_root_ca_trusted_certs: true
+    opsmanager_root_ca_trusted_certs: false
   syslog_configuration:
     enabled: false
 resource-configuration:
