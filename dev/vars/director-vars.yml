@@ -4,7 +4,7 @@ az_configuration: [{name: us-central1-a}]
 
 # network-assignment
 network-assignment:
-  network: {name: pcf-management-subnet}
+  network: {name: pcf-infrastructure-subnet}
   singleton_availability_zone: {name: us-central1-a}
 
 # networks-configuration
