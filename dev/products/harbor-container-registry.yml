@@ -15,7 +15,7 @@ product-properties:
     selected_option: default
     value: default
   .properties.hostname:
-    value: harbor.pks.pcf-labs.com
+    value: harbor.pks.tanzu4u.com
   .properties.initial_delay_minutes:
     value: 60
   .properties.log_insight:
