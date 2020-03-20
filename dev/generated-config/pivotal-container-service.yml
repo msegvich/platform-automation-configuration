@@ -21,19 +21,12 @@ product-properties:
   .properties.bosh-metric-sink-outputs:
     value: |
       [[outputs.discard]]
-  .properties.cloud_provider:
-    selected_option: gcp
-    value: GCP
-  .properties.cloud_provider.gcp.master_service_account:
-    value: pks-master@fe-msegvich.iam.gserviceaccount.com
-  .properties.cloud_provider.gcp.network:
-    value: pcf-pcf-network
-  .properties.cloud_provider.gcp.project_id:
-    value: fe-msegvich
-  .properties.cloud_provider.gcp.subnetwork:
-    value: pcf-services-subnet
-  .properties.cloud_provider.gcp.worker_service_account:
-    value: pks-worker@fe-msegvich.iam.gserviceaccount.com
+  .properties.cloud_provider.azure.azure_cloud_name:
+    value: AzurePublicCloud
+  .properties.cloud_provider.vsphere.vcenter_master_creds:
+    value:
+      identity: ((properties_cloud_provider_vsphere_vcenter_master_creds.identity))
+      password: ((properties_cloud_provider_vsphere_vcenter_master_creds.password))
   .properties.log_sink_resources_deploy:
     value: true
   .properties.metric_sink_resources_deploy:
@@ -56,8 +49,6 @@ product-properties:
   .properties.pks-vrops:
     selected_option: disabled
     value: disabled
-  .properties.pks_api_hostname:
-    value: api.pks.pcf-labs.com
   .properties.plan1_selector:
     selected_option: active
     value: Plan Active
@@ -71,69 +62,24 @@ product-properties:
   .properties.plan1_selector.active.kubelet_drain_force:
     value: true
   .properties.plan1_selector.active.kubelet_drain_force_node:
-    value: true
+    value: false
   .properties.plan1_selector.active.kubelet_drain_grace_period:
     value: 10
   .properties.plan1_selector.active.kubelet_drain_ignore_daemonsets:
     value: true
   .properties.plan1_selector.active.kubelet_drain_timeout:
     value: 0
-  .properties.plan1_selector.active.master_az_placement:
-    value:
-    - us-central1-a
   .properties.plan1_selector.active.master_instances:
     value: 1
-  .properties.plan1_selector.active.master_vm_type:
-    value: large.disk
   .properties.plan1_selector.active.max_worker_instances:
-    value: 10
+    value: 50
   .properties.plan1_selector.active.name:
-    value: Xtra Small
-  .properties.plan1_selector.active.worker_az_placement:
-    value:
-    - us-central1-a
+    value: small
   .properties.plan1_selector.active.worker_instances:
-    value: 1
-  .properties.plan1_selector.active.worker_vm_type:
-    value: large.disk
-  .properties.plan2_selector:
-    selected_option: active
-    value: Plan Active
-  .properties.plan2_selector.active.allow_privileged_containers:
-    value: false
-  .properties.plan2_selector.active.description:
-    value: 'Example: This plan will configure a lightweight kubernetes cluster. Not
-      recommended for production workloads.'
-  .properties.plan2_selector.active.kubelet_drain_delete_local_data:
-    value: true
-  .properties.plan2_selector.active.kubelet_drain_force:
-    value: true
-  .properties.plan2_selector.active.kubelet_drain_force_node:
-    value: true
-  .properties.plan2_selector.active.kubelet_drain_grace_period:
-    value: 10
-  .properties.plan2_selector.active.kubelet_drain_ignore_daemonsets:
-    value: true
-  .properties.plan2_selector.active.kubelet_drain_timeout:
-    value: 0
-  .properties.plan2_selector.active.master_az_placement:
-    value:
-    - us-central1-a
-  .properties.plan2_selector.active.master_instances:
-    value: 1
-  .properties.plan2_selector.active.master_vm_type:
-    value: large.disk
-  .properties.plan2_selector.active.max_worker_instances:
-    value: 10
-  .properties.plan2_selector.active.name:
-    value: Small
-  .properties.plan2_selector.active.worker_az_placement:
-    value:
-    - us-central1-a
-  .properties.plan2_selector.active.worker_instances:
     value: 3
-  .properties.plan2_selector.active.worker_vm_type:
-    value: large.disk
+  .properties.plan2_selector:
+    selected_option: inactive
+    value: Plan Inactive
   .properties.plan3_selector:
     selected_option: inactive
     value: Plan Inactive
@@ -173,12 +119,17 @@ product-properties:
   .properties.syslog_selector:
     selected_option: disabled
     value: disabled
-  .properties.telemetry_installation_purpose_selector:
-    selected_option: demo_or_poc
-    value: demo_or_poc
   .properties.telemetry_selector:
-    selected_option: disabled
-    value: disabled
+    selected_option: enabled
+    value: enabled
+  .properties.telemetry_selector.enabled.billing_polling_interval:
+    value: 60
+  .properties.telemetry_selector.enabled.environment_provider:
+    value: none
+  .properties.telemetry_selector.enabled.telemetry_polling_interval:
+    value: 600
+  .properties.telemetry_selector.enabled.telemetry_url:
+    value: https://vcsa.vmware.com/ph
   .properties.tmc:
     selected_option: disabled
     value: disabled
@@ -186,28 +137,23 @@ product-properties:
     selected_option: internal
     value: internal
   .properties.uaa_pks_cli_access_token_lifetime:
-    value: 86400
+    value: 600
   .properties.uaa_pks_cli_refresh_token_lifetime:
-    value: 172800
+    value: 21600
   .properties.uaa_pks_cluster_client_access_token_lifetime:
     value: 600
   .properties.uaa_pks_cluster_client_refresh_token_lifetime:
     value: 21600
-  .properties.vm_extensions:
-    value:
-    - public_ip
   .properties.wavefront:
     selected_option: disabled
     value: disabled
   .properties.worker_max_in_flight:
-    value: 1
+    value: 5
 network-properties:
-  network:
-    name: pcf-infrastructure-subnet
+  network: null
   other_availability_zones:
   - name: us-central1-a
-  service_network:
-    name: services
+  service_network: null
   singleton_availability_zone:
     name: us-central1-a
 resource-config:
@@ -215,8 +161,7 @@ resource-config:
     max_in_flight: 1
     additional_networks: []
     additional_vm_extensions: []
-    elb_names:
-    - tcp:pks-api
+    elb_names: []
     instance_type:
       id: automatic
     instances: automatic
